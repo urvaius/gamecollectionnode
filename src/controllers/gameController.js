@@ -38,7 +38,7 @@ var gameController = function (gameService, nav) {
                     _id: id
                 },
                 function (err, results) {
-                    if (results.bookId) {
+                    if (results.gameId) {
                         gameService.getGameById(results.gameId,
                             function (err, game) {
                                 results.game = game;

@@ -4,9 +4,11 @@ var mongodb = require('mongodb').MongoClient;
 var objectId = require('mongodb').ObjectID;
 
 var router = function (nav) {
-    //var gameService = require('../services/goodreadsService')();
+    var gameService = require('../services/goodreadsService')();
+    
     //var gameController = require('../controllers/gameController')(bookService, nav);
-    var gameController = require('../controllers/gameController')();
+    var gameController = require('../controllers/gameController')(gameService, nav);
+    //var gameController = require('../controllers/gameController')();
     gameRouter.use(gameController.middleware);
     gameRouter.route('/')
         .get(gameController.getIndex);
